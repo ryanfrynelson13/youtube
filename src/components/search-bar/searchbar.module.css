@@ -1,0 +1,36 @@
+.searchbar{
+    height: 10vh;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    width: 30vw;
+    background-color: #434343;
+    border: 1px solid rgb(118, 118, 118);   
+    border-radius: 12px  0 0 12px;
+    padding: 0.5rem 1rem;
+    color: #828282;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+button{
+    border-radius: 0 12px 12px 0;
+    padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+    border: 1px solid rgb(118, 118, 118); 
+    background-color: #656565;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #828282;
+
+}
+
+button:active,
+button:hover{
+    cursor: pointer;
+    background-color: #5d5d5d;
+    color: #909090;
+}

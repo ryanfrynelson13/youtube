@@ -1,0 +1,14 @@
+.header{
+    height: 10vh;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(118, 118, 118);
+}
+
+img{
+    height: 5vh;
+    width: auto;
+
+}

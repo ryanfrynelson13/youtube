@@ -1,0 +1,34 @@
+.preview{
+    width: 20vw;
+    margin-bottom: 2rem;    
+}
+
+.preview:active,
+.preview:hover{
+    cursor: pointer;
+}
+
+.preview img{
+    object-fit: cover;
+    width: 100%;
+    height: 22vh;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.preview img:active,
+.preview img:hover{
+    width: 105%;
+    height: 23vh;
+}
+
+.preview p{
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+}
+
+p.channel{
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.802);
+}
