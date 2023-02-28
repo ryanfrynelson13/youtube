@@ -3,49 +3,38 @@ import axios from 'axios'
 import YoutubeVideoData from "../../types/youtube-video-data.type"
 import classes from './video-grid.module.css'
 import VideoPreview from "../../components/video-preview/VideoPreview"
+import useSearch from "../../hooks/useSearch"
 
 const URL = 'https://www.googleapis.com/youtube/v3/search'
 
 type SearchListProps = {
-    searchVal:string
+    searchVal:[string,string]
     onVideo: (vidId: string) => void
 }
 
 const VideoGrid = ({searchVal, onVideo}:SearchListProps) => {
 
-    const [thumbnails, setThumbnails] = useState<YoutubeVideoData[]>([])
+    const {isLoading,err ,searchData} = useSearch(...searchVal)
 
-    useEffect(() => {
-        axios.get(URL, {
-            params: {
-                key: import.meta.env.VITE_API_KEY,
-                part: 'snippet',
-                q: searchVal || '',
-                maxResults: 20,
-                type: 'video'
-            }
-        })
-        .then(res => { 
-            setThumbnails(res.data.items)
-        })
-        .catch(err => {
-            console.log(err);            
-        })
-    },[searchVal])
-
-    const thumbnailMap = thumbnails?.map(videoData => {
+    const thumbnailMap = searchData?.map(videoData => {
         return (
-            <VideoPreview key={videoData.id.videoId} videoData={videoData} onVideo={onVideo}/>            
+            <VideoPreview key={videoData.id.videoId} videoId={videoData.id.videoId} onVideo={onVideo}/>            
         )
     })
 
-  return (
-    <div className={classes.container}>
-        <ul  className={classes['video-grid']}>
-            {thumbnailMap}
-        </ul>
+    if(isLoading)return(
+        <div className={classes.container}>
+        ...Loading
     </div>
-  )
+    )
+
+    return (
+        <div className={classes.container}>
+            <ul  className={classes['video-grid']}>
+                {thumbnailMap}
+            </ul>
+        </div>
+    )
 }
 
 export default VideoGrid

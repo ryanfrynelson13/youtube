@@ -4,14 +4,14 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 import classes from './searchbar.module.css'
 
 
-const SearchBar = ({onSearch}:{onSearch: (search:string) => void}) => {
+const SearchBar = ({onSearch}:{onSearch: (search:[string, string]) => void}) => {
 
     const {register, handleSubmit, reset} = useForm({
         defaultValues: {search: ''}
     })
 
     const handleSearch: SubmitHandler<{search:string}> = ({search}) => {     
-        onSearch(search)
+        onSearch([search, 'search'])
         reset()
     }
 

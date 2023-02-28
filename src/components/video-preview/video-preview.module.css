@@ -28,7 +28,43 @@
     margin-bottom: 0.2rem;
 }
 
-p.channel{
+.preview p.channel{
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.802);
+}
+
+
+.mini-preview{
+    margin: 2rem 0;
+    display: flex;    
+}
+
+.mini-preview:active,
+.mini-preview:hover{
+    cursor: pointer;
+}
+
+.mini-preview img{
+    object-fit: cover;
+    min-width: 45%;
+    max-width: 45%;
+    height: 11vh;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.mini-preview div{
+    padding-right: 1.5rem;
+}
+
+
+.mini-preview p{
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.mini-preview p.channel{
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.684);
 }

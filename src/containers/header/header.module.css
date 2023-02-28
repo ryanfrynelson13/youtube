@@ -7,8 +7,15 @@
     border-bottom: 1px solid rgb(118, 118, 118);
 }
 
-img{
+.header img{
     height: 5vh;
     width: auto;
+    margin-left: 2rem;
 
 }
+
+.header img:active,
+.header img:hover{
+    cursor: pointer;
+}
+
